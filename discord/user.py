@@ -28,6 +28,7 @@ from __future__ import annotations
 from typing import Any, Dict, List, Optional, Type, TypeVar, TYPE_CHECKING
 
 import discord.abc
+
 from .asset import Asset
 from .colour import Colour
 from .enums import DefaultAvatar
@@ -389,6 +390,8 @@ class ClientUser(BaseUser):
             payload['username'] = username
 
         if avatar is not MISSING:
+            if not isinstance(avatar, bytes):
+                avatar = await self._state.http.get_from_cdn(avatar)
             payload['avatar'] = _bytes_to_base64_data(avatar)
 
         data: UserPayload = await self._state.http.edit_profile(payload)
