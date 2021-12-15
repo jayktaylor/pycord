@@ -316,8 +316,8 @@ class Encoder(_OpusStruct):
         self.set_bitrate(128)
 #         self.set_fec(True)
 #         self.set_expected_packet_loss_percent(0.15)
-        self.set_bandwidth('full')
-        self.set_signal_type('auto')
+#         self.set_bandwidth('full')
+#         self.set_signal_type('auto')
 
     def __del__(self) -> None:
         if hasattr(self, '_state'):
