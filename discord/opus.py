@@ -314,7 +314,7 @@ class Encoder(_OpusStruct):
         self.application: int = application
         self._state: EncoderStruct = self._create_state()
         self.set_bitrate(128)
-        self.set_fec(True)
+#         self.set_fec(True)
         self.set_expected_packet_loss_percent(0.15)
         self.set_bandwidth('full')
         self.set_signal_type('auto')
